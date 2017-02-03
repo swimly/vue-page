@@ -1,5 +1,5 @@
 {
-  "name": "vue-page",
+  "name": "lcdc",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "swimly <979741120@qq.com>",
@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "vue": "^2.1.0",
+    "vue-resource": "^1.1.2",
     "vue-router": "^2.2.0"
   },
   "devDependencies": {

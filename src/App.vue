@@ -1,7 +1,15 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+    <div class="header">
+      <ul class="nav">
+        <li><router-link to="/home">首页</router-link></li>
+        <li><router-link to="/projects">项目</router-link></li>
+        <li><router-link to="/articles">文摘</router-link></li>
+      </ul>
+    </div>
+    <div class="view">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
