@@ -106,3 +106,22 @@ export default {
 </style>
 
 ```
+其中遇到的一些坑：
+在写js的时候需要注意的一些问题：
+1、json的写法
+``` javascript
+  {
+    a: '000',
+    b: 1
+  }
+```
+冒号的后面一定要空一格
+2、function应该注意的：
+``` javascript
+  {
+    success: function () {
+
+    }
+  }
+```
+()两边都要加上空格。
