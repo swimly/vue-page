@@ -8,9 +8,6 @@ const config = {
     text: '项目',
     url: '/projects',
     sub: [{
-      text: '全部',
-      url: '/projects'
-    }, {
       text: '手机页面',
       url: '/projects/1'
     }, {
@@ -31,10 +28,10 @@ const config = {
     }]
   }, {
     text: '文摘',
-    url: '/articles',
+    url: '/articles/0',
     sub: [{
       text: '全部',
-      url: '/articles'
+      url: '/articles/0'
     }, {
       text: '心得',
       url: '/articles/1'

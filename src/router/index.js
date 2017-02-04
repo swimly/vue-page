@@ -31,7 +31,7 @@ const router = new VueRouter({
     component: Projects
   }, {
     path: '/projects/:type',
-    name: 'projectCatory',
+    name: 'projects',
     component: Projects
   }, {
     path: '/projects/:type/:title',

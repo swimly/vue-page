@@ -57,7 +57,6 @@ export default {
         function (res) {
           this.loading = false
           this.list = res.body
-          console.log(this.list)
         },
         function (res) {
           console.log(res)
