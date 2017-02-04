@@ -3,7 +3,7 @@
     <div id="header">
       <HeaderBar></HeaderBar>
     </div>
-    <div class="view row w" id="view">
+    <div class="view" id="view">
       <router-view></router-view>
     </div>
     <div id="footer">
@@ -44,8 +44,10 @@ body{
 }
 #view{
   padding-top:50px;
-  min-height:100%;
+  height:100%;
+  overflow:hidden;
 }
+#view .mid-layout{min-height:100%;position:relative;}
 html,body{height:100%;}
 h1,h2,h3,h4,h5,h6,p,dl,dt,dd,ul,li,body{margin:0;padding:0;font-weight:normal;list-style: none;}
 a{text-decoration: none;}
@@ -59,6 +61,5 @@ a{text-decoration: none;}
 .c-9{color:#999;}.c-pink{color:#E64C65}
 .fs-12{font-size:12px;}.fs-14{font-size:14px;}
 .mt-10{margin-top:10px;}
-.loading{background:url(./assets/img/loading.gif) no-repeat center center;vertical-align: middle;background-size:200px;}
-.loading:before{content:"加载中，请耐心等待！";display:inline-block;margin-top:200px;font-size:14px;color:#7DB0E0;}
+.center{position:absolute;top:50%;left:50%;transform: translate(-50%,-50%)}
 </style>

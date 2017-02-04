@@ -1,23 +1,33 @@
 <template>
-  <div class="col v-t" :class="loading?'loading':''">
-    <div class="mid-layout">
-      <ul class="project-list">
-        <li v-for="article in list">
-          <div class="box">
-            <span class="img">
-              <img class="w" :src="fileUrl + article.img" alt="">
-            </span>
-            <div class="row w">
-              <router-link class="fs-14 c-pink col v-m" :to="{name: 'project', params: {type: article.type, title: article.id}}">{{article.title}}</router-link>
-              <span>{{article.type}}</span>
-            </div>
-            <p class="row w fs-14 c-9">
-              <span class="col v-m t-l">{{article.createdAt}}</span>
-              <span class="col v-m t-r">{{article.author}}</span>
-            </p>
+  <div class="mid-layout">
+    <ul class="project-list">
+      <li v-for="article in list">
+        <div class="box">
+          <span class="img">
+            <img class="w" :src="fileUrl + article.img" alt="">
+          </span>
+          <div class="row w">
+            <router-link class="fs-14 c-pink col v-m" :to="{name: 'project', params: {type: article.type, title: article.id}}">{{article.title}}</router-link>
+            <span>{{article.type}}</span>
           </div>
-        </li>
-      </ul>
+          <p class="row w fs-14 c-9">
+            <span class="col v-m t-l">{{article.createdAt}}</span>
+            <span class="col v-m t-r">{{article.author}}</span>
+          </p>
+        </div>
+      </li>
+    </ul>
+    <div class="row w h center" v-if="!hasdata">
+      <div class="col v-m">
+        <img style="width:150px;" src="../assets/img/nodata.png" alt="">
+        <p class="fs-14 c-9 mt-10">没找到哦</p>
+      </div>
+    </div>
+    <div class="row w h center" v-if="loading">
+      <div class="col v-m">
+        <img style="width:200px;" src="../assets/img/loading.gif" alt="">
+        <p class="fs-14 c-9 mt-10">正在努力查找中！</p>
+      </div>
     </div>
   </div>
 </template>
@@ -33,6 +43,7 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       fileUrl: config.fileUrl,
       list: [],
+      hasdata: true,
       catory: this.$route.params.type
     }
   },
@@ -51,11 +62,16 @@ export default {
         emulateJSON: true,
         before: function (req) {
           this.list = []
+          this.hasdata = true
           this.loading = true
         }
       }).then(
         function (res) {
           this.loading = false
+          if (res.body.length === 0) {
+            this.hasdata = false
+            console.log('null')
+          }
           this.list = res.body
         },
         function (res) {
@@ -79,6 +95,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
 .project-list{display:block;font-size:0;margin:0 -10px;text-align:left;}
 .project-list li{display:inline-block;font-size:14px;padding:10px;box-sizing: border-box;width:25%;}
 .img{overflow:hidden;display:inline-block;}
