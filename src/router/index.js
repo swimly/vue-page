@@ -18,12 +18,20 @@ const router = new VueRouter({
     name: 'articles',
     component: Articles
   }, {
+    path: '/articles/:type',
+    name: 'articleCatory',
+    component: Articles
+  }, {
     path: '/articles/:type/:title',
     name: 'article',
     component: ArticleInfo
   }, {
     path: '/projects',
     name: 'projects',
+    component: Projects
+  }, {
+    path: '/projects/:type',
+    name: 'projectCatory',
     component: Projects
   }, {
     path: '/projects/:type/:title',

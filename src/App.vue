@@ -38,15 +38,6 @@ body{
   color: #2c3e50;
   height:100%;
 }
-#header{
-  height:50px;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  background:#393D49;
-  z-index:100;
-}
 .mid-layout{
   width:1200px;
   margin:0 auto;
