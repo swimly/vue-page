@@ -16,13 +16,15 @@
 import HeaderBar from './components/Header'
 import Hello from './components/Hello'
 import FooterBar from './components/Footer'
+import cookie from 'vue-cookie'
 
 export default {
   name: 'app',
   components: {
     Hello,
     HeaderBar,
-    FooterBar
+    FooterBar,
+    cookie
   }
 }
 </script>

@@ -7,6 +7,7 @@ import ArticleInfo from '../components/ArticleInfo'
 import Projects from '../components/Projects'
 import ProjectInfo from '../components/ProjectInfo'
 import Login from '../components/Login'
+import Page from '../components/Page_404'
 Vue.use(VueRouter)
 // path:'*',redirect:'/home'  重定向到path是/home的映射
 const router = new VueRouter({
@@ -46,7 +47,7 @@ const router = new VueRouter({
     }
   }, {
     path: '*',
-    component: Hello
+    component: Page
   }]
 })
 export default router

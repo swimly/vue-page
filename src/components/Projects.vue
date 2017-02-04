@@ -95,8 +95,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-.project-list{display:block;font-size:0;margin:0 -10px;text-align:left;}
+.project-list{display:block;font-size:0;margin:0 -10px;text-align:left;padding:10px 0;}
 .project-list li{display:inline-block;font-size:14px;padding:10px;box-sizing: border-box;width:25%;}
 .img{overflow:hidden;display:inline-block;}
 .img img{transition:0.3s;}

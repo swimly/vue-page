@@ -5,7 +5,7 @@
     <div class="row w h center" v-if="loading">
       <div class="col v-m">
         <img style="width:200px;" src="../assets/img/loading.gif" alt="">
-        <p class="fs-14 c-9 mt-10">正在努力查找中！</p>
+        <p class="fs-14 c-9 mt-10">正在努力拉取页面！</p>
       </div>
     </div>
   </div>
