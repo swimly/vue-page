@@ -6,11 +6,12 @@ import Articles from '../components/Articles'
 import ArticleInfo from '../components/ArticleInfo'
 import Projects from '../components/Projects'
 import ProjectInfo from '../components/ProjectInfo'
+import Login from '../components/Login'
 Vue.use(VueRouter)
 // path:'*',redirect:'/home'  重定向到path是/home的映射
 const router = new VueRouter({
   routes: [{
-    path: '/home',
+    path: '/index',
     component: Hello
   }, {
     path: '/articles',
@@ -28,6 +29,16 @@ const router = new VueRouter({
     path: '/projects/:type/:title',
     name: 'project',
     component: ProjectInfo
+  }, {
+    path: '/login',
+    name: 'login',
+    component: Login,
+    meta: {
+      pageTitle: '登录'
+    }
+  }, {
+    path: '*',
+    component: Hello
   }]
 })
 export default router

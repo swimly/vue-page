@@ -1,0 +1,19 @@
+body{margin:0;font-family:"微软雅黑";}
+ul{padding:0;list-style: none;margin:0;}
+a{text-decoration:none;font-size:inherit;color:inherit;}
+img{border:none;}
+.w{width:100%;}.h{height:100%;}.w-101{width:101%;margin-left:-0.5%;}
+.w-10{width:10%;}.w-20{width:20%;}.w-30{width:30%;}.w-50{width:50%;}.w-80{width:80%;}.w-25{width:25%;}.w-40{width:40%;}.w-60{width:60%;}.w-70{width:70%;}
+.fw-b{font-weight:bold;}.fw-n{font-weight:normal;}.f-n{font-family:"微软雅黑";}.lh-18{line-height:1.8;}
+.fs-0{font-size:0px;}.fs-12{font-size:12px;}.fs-14{font-size:14px;}.fs-18{font-size:18px;}.fs-22{font-size:22px;}.fs-30{font-size:30px;}
+.c-pink{color:#F76463;}.c-lightblue{color:#4691E3;}.c-b8{color:#B8B8B8;}.c-4{color:#444;}.c-6{color:#666;}.c-43{color:#434343;}.c-red{color:#ff6666;}
+.c-blue{color:#3192e4;}.c-84{color:#848484;}.bg-white{background:#fff;}
+.v-m{vertical-align: middle;}.v-t{vertical-align: top;}.v-b{vertical-align: bottom;}
+.t-r{text-align:right;}.t-c{text-align:center;}.t-l{text-align:left;}
+.row{display:table;*+display:block;*+font-size:0;}
+.col{display:table-cell;*+display:inline-block;*display:inline;zoom:1;box-sizing:border-box;}
+.mr-5{margin-right:5px;}.ml-5{margin-left:5px;}.mt-5{margin-top:5px;}.mt-7{margin-top:7px;}.mt-20{margin-top:20px;}.mt-10{margin-top:10px;}.mb-20{margin-bottom:20px;}
+.plr-10{padding-left:10px;padding-right:10px;}.pl-15{padding-left:15px;}.pl-20{padding-left:20px;}
+.br-6{border-radius:6px;}.p-r{position:relative;}.bd-gray{border:1px solid #DBDBDB;}
+.middle:before{content:"";display:inline-block;width:0;height:100%;vertical-align:middle;}
+.d-b{display:block;}.d-ib{display:inline-block;}

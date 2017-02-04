@@ -1,7 +1,7 @@
 <template>
-  <div class="mid-layout">
+  <div class="mid-layout col v-t" :class="loading?'loading':''">
     <h1>{{info.title}}</h1>
-    {{info}}
+    <img :src="info.content" alt="">
   </div>
 </template>
 
@@ -11,6 +11,7 @@ export default {
   name: 'article_info',
   data () {
     return {
+      loading: false,
       msg: 'Welcome to Your Vue.js App',
       info: []
     }
@@ -26,11 +27,13 @@ export default {
       },
       emulateJSON: true,
       before: function (req) {
+        this.loading = true
         console.log('开始获取')
       }
     }).then(
       function (res) {
         console.log(res)
+        this.loading = false
         this.info = res.body
         console.log(this.info)
       },
