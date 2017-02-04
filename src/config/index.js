@@ -28,13 +28,22 @@ const config = {
     }]
   }, {
     text: '文摘',
-    url: '/articles/0',
+    url: '/articles',
     sub: [{
-      text: '全部',
-      url: '/articles/0'
-    }, {
-      text: '心得',
+      text: '基础',
       url: '/articles/1'
+    }, {
+      text: '技巧',
+      url: '/articles/2'
+    }, {
+      text: '分享',
+      url: '/articles/3'
+    }, {
+      text: '插件',
+      url: '/articles/4'
+    }, {
+      text: '框架',
+      url: '/articles/5'
     }]
   }, {
     text: '成员',

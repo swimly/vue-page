@@ -1,7 +1,13 @@
 <template>
-  <div class="mid-layout col v-t" :class="loading?'loading':''">
+  <div class="mid-layout">
     <h1>{{info.title}}</h1>
-    <img :src="info.content" alt="">
+    <img class="w" :src="info.content" alt="">
+    <div class="row w h center" v-if="loading">
+      <div class="col v-m">
+        <img style="width:200px;" src="../assets/img/loading.gif" alt="">
+        <p class="fs-14 c-9 mt-10">正在努力查找中！</p>
+      </div>
+    </div>
   </div>
 </template>
 
