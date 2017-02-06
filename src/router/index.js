@@ -10,6 +10,8 @@ import Login from '../components/Login'
 import Page from '../components/Page_404'
 import Personer from '../components/Personer'
 import Info from '../components/Info'
+import EditPwd from '../components/EditPwd'
+import EditEmail from '../components/EditEmail'
 Vue.use(VueRouter)
 // path:'*',redirect:'/home'  重定向到path是/home的映射
 const router = new VueRouter({
@@ -50,14 +52,12 @@ const router = new VueRouter({
   }, {
     path: '/center',
     name: 'center',
-    component: Personer
-  }, {
-    path: '/center/info',
-    name: 'info',
-    components: {
-      default: Personer,
-      sub: Info
-    }
+    component: Personer,
+    children: [
+      {path: '/center/info', components: {default: Personer, sub: Info}},
+      {path: '/center/edit_pwd', components: {default: Personer, sub: EditPwd}},
+      {path: '/center/edit_email', components: {default: Personer, sub: EditEmail}}
+    ]
   }, {
     path: '*',
     component: Page

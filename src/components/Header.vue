@@ -32,7 +32,7 @@
             <router-link class="col v-m" to="/zone">{{login}}</router-link>
           </dt>
           <dd>
-            <router-link class="col v-m" to="/center">个人中心</router-link>
+            <router-link class="col v-m" to="/center/info">个人中心</router-link>
             <a href="javascript:;" v-on:click="logout">退出登录</a>
           </dd>
         </dl>
@@ -95,11 +95,12 @@ export default {
 .sub-nav a{display:inline-block;line-height:40px;color:#999;margin-right:2em;}
 .sub-nav a:hover,.sub-nav a.router-link-active{color:#E64C65;}
 .nav li:hover .sub-nav{height:50px;}
-.user{color:#acb8c3;font-size:14px;display:inline-block;position:relative;height:50px;line-height:50px;}
+.user{color:#acb8c3;font-size:14px;display:inline-block;position:relative;height:50px;line-height:50px;padding:0 1em;}
 .user .iconfont{font-size:18px;padding-right:0.5em;}
 .user a{color:#acb8c3;}
-.user dd{position:absolute;background:#393D49;top:50px;width:150%;right:50%;transform: translateX(60%);padding-bottom:1em;display:none;}
-.user dd a{display:block;line-height:30px;height:30px;text-align:left;padding-left:2em;transition:0.3s;}
+.user dd{position:absolute;background:#4B505A;top:50px;width:150%;left:0;padding-bottom:1em;display:none;border-radius:0 0 5px 5px;}
+.user dd a{display:block;line-height:30px;height:30px;text-align:left;padding-left:3em;transition:0.3s;}
 .user dd a:hover{color:#fff;}
+.user:hover{background:#4B505A;border-radius:0 0 -5px 0;}
 .user:hover dd{display:inline-block;}
 </style>

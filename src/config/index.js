@@ -48,6 +48,20 @@ const config = {
   }, {
     text: '成员',
     url: '/group'
+  }],
+  personer: [{
+    icon: '',
+    text: '个人信息',
+    sub: [{
+      text: '我的信息',
+      url: '/center/info'
+    }, {
+      text: '修改密码',
+      url: '/center/edit_pwd'
+    }, {
+      text: '修改邮箱',
+      url: '/center/edit_email'
+    }]
   }]
 }
 export default config

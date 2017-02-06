@@ -1,15 +1,15 @@
 <template>
-  <div class="info w-75">
+  <div class="editpwd w-75">
     <h1>{{ msg }}</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'info',
+  name: 'editPwd',
   data () {
     return {
-      msg: '我的信息'
+      msg: '修改密码'
     }
   }
 }

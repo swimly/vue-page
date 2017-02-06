@@ -45,7 +45,7 @@ export default {
             if (this.remember) {
               this.$parent.setCookie('username', res.body.username, 720000)
             } else {
-              this.$parent.setCookie('username', res.body.username, 3600)
+              this.$parent.setCookie('username', res.body.username, 36000)
             }
             this.$parent.login = this.$parent.getCookie('username')
             this.$router.push('/index')

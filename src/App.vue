@@ -3,9 +3,8 @@
     <div id="header">
       <HeaderBar></HeaderBar>
     </div>
-    <div class="view row mid-layout" id="view">
-      <router-view name="default" class="col"></router-view>
-      <router-view name="sub" class="col"></router-view>
+    <div class="view" id="view">
+      <router-view name="default"></router-view>
     </div>
     <div id="footer">
       <FooterBar></FooterBar>
@@ -107,7 +106,7 @@ a{text-decoration: none;}
 .t-l{text-align:left;}.t-r{text-align:right;}.t-c{text-align:center;}
 .v-t{vertical-align: top;}.v-b{vertical-align: bottom;}.v-m{vertical-align: middle;}
 .c-9{color:#999;}.c-pink{color:#E64C65}
-.w-25{width:25%;}.w-75{width:75%;}
+.w-20{width:20%;}.w-80{width:80%;}
 .fs-12{font-size:12px;}.fs-14{font-size:14px;}
 .mt-10{margin-top:10px;}
 .center{position:absolute;top:50%;left:50%;transform: translate(-50%,-50%)}
