@@ -20,11 +20,55 @@ import cookie from 'vue-cookie'
 
 export default {
   name: 'app',
+  data () {
+    return {
+      login: this.getCookie('username')
+    }
+  },
+  methods: {
+    setCookie: function (name, value, seconds) {
+      seconds = seconds || 0
+      var expires = ''
+      if (seconds !== 0) {
+        var date = new Date()
+        date.setTime(date.getTime() + (seconds * 1000))
+        expires = '; expires=' + date.toGMTString()
+      }
+      document.cookie = name + '=' + escape(value) + expires + '; path=/'
+    },
+    getCookie: function (name) {
+      var nameEQ = name + '='
+      var ca = document.cookie.split(';')
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i]
+        while (c.charAt(0) === ' ') {
+          c = c.substring(1, c.length)
+        }
+        if (c.indexOf(nameEQ) === 0) {
+          return unescape(c.substring(nameEQ.length, c.length))
+        }
+      }
+      return false
+    },
+    delCookie: function (name) {
+      var exp = new Date()
+      exp.setTime(exp.getTime() - 1)
+      var cval = this.getCookie(name)
+      if (cval != null) {
+        document.cookie = name + '=' + cval + ';expires=' + exp.toGMTString()
+      }
+    }
+  },
   components: {
     Hello,
     HeaderBar,
     FooterBar,
     cookie
+  },
+  watch: {
+    'login': function (v, o) {
+      this.$children[0].login = this.getCookie('username')
+    }
   }
 }
 </script>

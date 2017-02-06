@@ -20,12 +20,22 @@
         </ul>
       </div>
       <div class="col v-m t-r">
-        <dl class="user v-m">
+        <dl class="user v-m" v-if="!login">
           <dt class="row">
             <span class="col v-m iconfont icon-nan"></span>
             <router-link class="col v-m" to="/login">登录</router-link>
           </dt>
-          <dd></dd>
+        </dl>
+        <dl class="user v-m" v-if="login">
+          <dt class="row">
+            <span class="col v-m iconfont icon-nan"></span>
+            <router-link class="col v-m" to="/zone">{{login}}</router-link>
+          </dt>
+          <dd>
+            <a href="/logout">后台管理</a>
+            <a href="/logout">个人中心</a>
+            <a href="javascript:;" v-on:click="logout">退出登录</a>
+          </dd>
         </dl>
       </div>
     </div>
@@ -39,7 +49,15 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      menus: config.menu
+      menus: config.menu,
+      login: this.$parent.getCookie('username')
+    }
+  },
+  methods: {
+    logout: function () {
+      this.$parent.delCookie('username')
+      this.login = this.$parent.getCookie('username')
+      this.$router.push('/login')
     }
   }
 }
@@ -77,7 +95,11 @@ export default {
 .sub-nav a{display:inline-block;line-height:40px;color:#999;margin-right:2em;}
 .sub-nav a:hover,.sub-nav a.router-link-active{color:#E64C65;}
 .nav li:hover .sub-nav{height:50px;}
-.user{color:#acb8c3;font-size:14px;display:inline-block;}
+.user{color:#acb8c3;font-size:14px;display:inline-block;position:relative;height:50px;line-height:50px;}
 .user .iconfont{font-size:18px;padding-right:0.5em;}
 .user a{color:#acb8c3;}
+.user dd{position:absolute;background:#393D49;top:50px;width:150%;right:50%;transform: translateX(60%);padding-bottom:1em;display:none;}
+.user dd a{display:block;line-height:30px;height:30px;text-align:left;padding-left:2em;transition:0.3s;}
+.user dd a:hover{color:#fff;}
+.user:hover dd{display:inline-block;}
 </style>

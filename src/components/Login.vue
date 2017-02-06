@@ -3,6 +3,8 @@
     <h1>{{ msg }}</h1>
     <input type="text" name="username" v-model="username">
     <input type="text" name="password" v-model="password">
+    <input type="checkbox" name="remember" value="" id="rem" v-model="remember">
+    <label for="rem">记住密码</label>
     <button type="button" v-on:click="login">登录</button>
   </div>
 </template>
@@ -15,36 +17,13 @@ export default {
     return {
       msg: '登录',
       username: '',
-      password: ''
+      password: '',
+      remember: false
     }
   },
   components: {
   },
   methods: {
-    setCookie: function (name, value, seconds) {
-      seconds = seconds || 0
-      var expires = ''
-      if (seconds !== 0) {
-        var date = new Date()
-        date.setTime(date.getTime() + (seconds * 1000))
-        expires = '; expires=' + date.toGMTString()
-      }
-      document.cookie = name + '=' + escape(value) + expires + '; path=/'
-    },
-    getCookie: function (name) {
-      var nameEQ = name + '='
-      var ca = document.cookie.split(';')
-      for (var i = 0; i < ca.length; i++) {
-        var c = ca[i]
-        while (c.charAt(0) === ' ') {
-          c = c.substring(1, c.length)
-        }
-        if (c.indexOf(nameEQ) === 0) {
-          return unescape(c.substring(nameEQ.length, c.length))
-        }
-      }
-      return false
-    },
     login: function () {
       this.$http.jsonp(config.url, {
         headers: {
@@ -57,17 +36,22 @@ export default {
         },
         emulateJSON: true,
         before: function (req) {
+          console.log(this.$parent.login)
         }
       }).then(
         function (res) {
-          console.log(res)
           if (typeof res.body.id === 'number') {
             console.log('登录成功')
-            this.setCookie('username', res.body.username, 720000)
+            if (this.remember) {
+              this.$parent.setCookie('username', res.body.username, 720000)
+            } else {
+              this.$parent.setCookie('username', res.body.username, 3600)
+            }
+            this.$parent.login = this.$parent.getCookie('username')
+            this.$router.push('/index')
           } else {
             console.log('用户名或者密码有误')
           }
-          console.log(this.getCookie('username'))
         },
         function (res) {
           console.log(res)
