@@ -32,8 +32,7 @@
             <router-link class="col v-m" to="/zone">{{login}}</router-link>
           </dt>
           <dd>
-            <a href="/logout">后台管理</a>
-            <a href="/logout">个人中心</a>
+            <router-link class="col v-m" to="/center">个人中心</router-link>
             <a href="javascript:;" v-on:click="logout">退出登录</a>
           </dd>
         </dl>
@@ -57,6 +56,7 @@ export default {
     logout: function () {
       this.$parent.delCookie('username')
       this.login = this.$parent.getCookie('username')
+      this.$parent.login = this.login
       this.$router.push('/login')
     }
   }

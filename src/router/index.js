@@ -8,6 +8,8 @@ import Projects from '../components/Projects'
 import ProjectInfo from '../components/ProjectInfo'
 import Login from '../components/Login'
 import Page from '../components/Page_404'
+import Personer from '../components/Personer'
+import Info from '../components/Info'
 Vue.use(VueRouter)
 // path:'*',redirect:'/home'  重定向到path是/home的映射
 const router = new VueRouter({
@@ -44,6 +46,17 @@ const router = new VueRouter({
     component: Login,
     meta: {
       pageTitle: '登录'
+    }
+  }, {
+    path: '/center',
+    name: 'center',
+    component: Personer
+  }, {
+    path: '/center/info',
+    name: 'info',
+    components: {
+      default: Personer,
+      sub: Info
     }
   }, {
     path: '*',
