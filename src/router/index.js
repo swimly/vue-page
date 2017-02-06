@@ -12,6 +12,8 @@ import Personer from '../components/Personer'
 import Info from '../components/Info'
 import EditPwd from '../components/EditPwd'
 import EditEmail from '../components/EditEmail'
+import Register from '../components/Register'
+import EditFace from '../components/EditFace'
 Vue.use(VueRouter)
 // path:'*',redirect:'/home'  重定向到path是/home的映射
 const router = new VueRouter({
@@ -50,13 +52,22 @@ const router = new VueRouter({
       pageTitle: '登录'
     }
   }, {
+    path: '/register',
+    name: 'register',
+    component: Register,
+    meta: {
+      pageTitle: '登录'
+    }
+  }, {
     path: '/center',
     name: 'center',
     component: Personer,
     children: [
       {path: '/center/info', components: {default: Personer, sub: Info}},
       {path: '/center/edit_pwd', components: {default: Personer, sub: EditPwd}},
-      {path: '/center/edit_email', components: {default: Personer, sub: EditEmail}}
+      {path: '/center/edit_email', components: {default: Personer, sub: EditEmail}},
+      {path: '/center/edit_face', components: {default: Personer, sub: EditFace}},
+      {path: '*', components: {default: Personer, sub: Page}}
     ]
   }, {
     path: '*',

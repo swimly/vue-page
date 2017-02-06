@@ -1,5 +1,5 @@
 <template>
-  <div class="mid-layout">
+  <div class="">
     404
   </div>
 </template>

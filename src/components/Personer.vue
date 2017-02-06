@@ -3,7 +3,7 @@
     <div class="col v-t w-20 aside">
       <div class="row w face">
         <div class="col v-m t-c">
-          <span class="iconfont icon-nan"></span>
+          <router-link to="/center/edit_face" class="iconfont icon-nan"></router-link>
           <h1>{{user}}</h1>
         </div>
       </div>
@@ -11,7 +11,7 @@
         <li v-for="item in menu">
           <h2>{{item.text}}</h2>
           <div class="sub" v-if="item.sub">
-            <router-link v-for="item in item.sub" class="col v-m" :to="item.url">{{item.text}}</router-link>
+            <router-link v-for="item in item.sub" class="row w" :to="item.url"><span class="col iconfont v-m fs-20" :class="item.icon"></span><span class="col v-m">{{item.text}}</span></router-link>
           </div>
         </li>
       </ul>
@@ -47,8 +47,10 @@ export default {
 .face{padding:20px;border-bottom:5px solid #fff;background:#f8f8f8;}
 .face .iconfont{font-size:6em;color:#ccc;}
 .face h1{margin:0;font-size:18px;color:#999;}
-.aside-menu h2{text-align:left;font-size:16px;color:#666;padding:10px;}
+.aside-menu h2{text-align:left;font-size:16px;color:#666;padding:10px 25px;border-bottom:1px solid #f5f5f5;position:relative;}
+.aside-menu h2:before{content:"";display:inline-block;width:3px;height:16px;background:#e64c65;position:absolute;left:0;top:50%;margin-top:-8px;}
 .aside-menu .sub{padding:0 10px;}
-.aside-menu a{display:block;text-align:left;padding:10px;border-bottom:1px solid #f9f9f9;font-size:14px;color:#888;}
+.aside-menu a{text-align:left;padding:10px;border-bottom:1px solid #f9f9f9;font-size:14px;color:#888;}
 .aside-menu .router-link-active{color:#E64C65;}
+.aside-menu .iconfont{width:20%;text-align:center;}
 </style>

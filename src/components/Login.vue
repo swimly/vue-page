@@ -1,11 +1,15 @@
 <template>
-  <div class="login">
-    <h1>{{ msg }}</h1>
-    <input type="text" name="username" v-model="username">
-    <input type="text" name="password" v-model="password">
-    <input type="checkbox" name="remember" value="" id="rem" v-model="remember">
-    <label for="rem">记住密码</label>
-    <button type="button" v-on:click="login">登录</button>
+  <div class="mid-layout">
+    <div class="login">
+      <h1>{{ msg }}</h1>
+      <div class="form w"><input type="text" name="username" v-model="username"></div>
+      <div class="form w mt-20"><input type="text" name="password" v-model="password"></div>
+      <div class="form w mt-10">
+        <input type="checkbox" name="remember" value="" id="rem" v-model="remember">
+        <label for="rem">记住密码</label>
+      </div>
+      <div v-on:click="login" class="btn btn-pink w mt-20">登录</div>
+    </div>
   </div>
 </template>
 
@@ -64,21 +68,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
+.login{width:50%;margin:50px auto;}
 </style>

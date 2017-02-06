@@ -1,8 +1,8 @@
 <template>
-  <div class="header t-l h">
+  <div class="header t-l h t-c">
     <div class="mid-layout row">
       <h1 class="col v-m logo">
-        <img class="v-m" src="../assets/img/logo.png" alt="">
+        <img class="v-t" src="../assets/img/logo.png" alt="">
       </h1>
       <div class="col v-m t-l">
         <ul class="nav">
@@ -20,12 +20,16 @@
         </ul>
       </div>
       <div class="col v-m t-r">
-        <dl class="user v-m" v-if="!login">
-          <dt class="row">
+        <ul class="v-m user" v-if="!login">
+          <li class="row">
             <span class="col v-m iconfont icon-nan"></span>
             <router-link class="col v-m" to="/login">登录</router-link>
-          </dt>
-        </dl>
+          </li>
+          <li class="row">
+            <span class="col v-m iconfont icon-nan"></span>
+            <router-link class="col v-m" to="/register">注册</router-link>
+          </li>
+        </ul>
         <dl class="user v-m" v-if="login">
           <dt class="row">
             <span class="col v-m iconfont icon-nan"></span>
@@ -95,12 +99,14 @@ export default {
 .sub-nav a{display:inline-block;line-height:40px;color:#999;margin-right:2em;}
 .sub-nav a:hover,.sub-nav a.router-link-active{color:#E64C65;}
 .nav li:hover .sub-nav{height:50px;}
-.user{color:#acb8c3;font-size:14px;display:inline-block;position:relative;height:50px;line-height:50px;padding:0 1em;}
+.user{color:#acb8c3;font-size:14px;display:inline-block;position:relative;line-height:50px;height:50px;}
 .user .iconfont{font-size:18px;padding-right:0.5em;}
 .user a{color:#acb8c3;}
+.user .router-link-active{color:#fff;}
 .user dd{position:absolute;background:#4B505A;top:50px;width:150%;left:0;padding-bottom:1em;display:none;border-radius:0 0 5px 5px;}
 .user dd a{display:block;line-height:30px;height:30px;text-align:left;padding-left:3em;transition:0.3s;}
 .user dd a:hover{color:#fff;}
-.user:hover{background:#4B505A;border-radius:0 0 -5px 0;}
+.user .row{padding:0 1em;}
+.user:hover dt.row{background:#4B505A;border-radius:0 0 -5px 0;}
 .user:hover dd{display:inline-block;}
 </style>
