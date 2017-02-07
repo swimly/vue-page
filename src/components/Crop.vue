@@ -52,6 +52,7 @@ export default {
       this.$emit('showface', this.imgDataUrl)
     },
     cropUploadSuccess (jsonData, field) {
+      console.log(jsonData)
     },
     cropUploadFail (status, field) {
       console.log('-------- upload fail --------')

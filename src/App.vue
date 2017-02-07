@@ -77,6 +77,7 @@ export default {
     },
     'face': function (v, o) {
       this.$children[0].userface = v
+      this.$children[1].face = v
     }
   }
 }

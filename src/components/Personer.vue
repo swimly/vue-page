@@ -7,7 +7,6 @@
           <h1 class="mt-10">{{user}}</h1>
         </div>
       </div>
-      <img :src="face" alt="">
       <ul class="aside-menu">
         <li v-for="item in menu">
           <h2>{{item.text}}</h2>
@@ -43,6 +42,11 @@ export default {
   methods: {
     showFace: function (face) {
       this.$parent.face = face
+    }
+  },
+  watch: {
+    'face': function (v, o) {
+      this.$children[0].imgDataUrl = v
     }
   }
 }

@@ -58,12 +58,37 @@ export default {
       userface: this.$parent.face
     }
   },
+  created: function () {
+    this.getFace()
+  },
   methods: {
     logout: function () {
       this.$parent.delCookie('username')
       this.login = this.$parent.getCookie('username')
       this.$parent.login = this.login
       this.$router.push('/login')
+    },
+    getFace: function () {
+      this.$http.jsonp(config.url, {
+        headers: {
+
+        },
+        params: {
+          type: 'get_user',
+          name: this.login
+        },
+        emulateJSON: true,
+        before: function (req) {
+        }
+      }).then(
+        function (res) {
+          this.userface = config.fileUrl + res.body.face
+          this.$parent.face = config.fileUrl + res.body.face
+        },
+        function (res) {
+          console.log(res)
+        }
+      )
     }
   }
 }
