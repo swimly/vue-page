@@ -59,7 +59,12 @@ export default {
     }
   },
   created: function () {
-    this.getFace()
+    if (this.$parent.getCookie('face')) {
+      this.userface = config.fileUrl + this.$parent.getCookie('face')
+      this.$parent.face = config.fileUrl + this.$parent.getCookie('face')
+    } else {
+      this.getFace()
+    }
   },
   methods: {
     logout: function () {

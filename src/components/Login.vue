@@ -51,6 +51,7 @@ export default {
             } else {
               this.$parent.setCookie('username', res.body.username, 36000)
             }
+            this.$parent.setCookie('face', res.body.face, 36000)
             this.$parent.login = this.$parent.getCookie('username')
             this.$router.push('/index')
           } else {

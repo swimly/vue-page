@@ -47,12 +47,22 @@ export default {
     toggleShow () {
       this.show = !this.show
     },
+    setCookie: function (name, value, seconds) {
+      seconds = seconds || 0
+      var expires = ''
+      if (seconds !== 0) {
+        var date = new Date()
+        date.setTime(date.getTime() + (seconds * 1000))
+        expires = '; expires=' + date.toGMTString()
+      }
+      document.cookie = name + '=' + escape(value) + expires + '; path=/'
+    },
     cropSuccess (imgDataUrl, field) {
       this.imgDataUrl = imgDataUrl
       this.$emit('showface', this.imgDataUrl)
     },
     cropUploadSuccess (jsonData, field) {
-      console.log(jsonData)
+      this.setCookie('face', config.fileUrl + jsonData.url)
     },
     cropUploadFail (status, field) {
       console.log('-------- upload fail --------')
