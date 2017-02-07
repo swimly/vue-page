@@ -3,10 +3,11 @@
     <div class="col v-t w-20 aside">
       <div class="row w face">
         <div class="col v-m t-c">
-          <router-link to="/center/edit_face" class="iconfont icon-nan"></router-link>
-          <h1>{{user}}</h1>
+          <my-crop @showface="showFace"></my-crop>
+          <h1 class="mt-10">{{user}}</h1>
         </div>
       </div>
+      <img :src="face" alt="">
       <ul class="aside-menu">
         <li v-for="item in menu">
           <h2>{{item.text}}</h2>
@@ -24,17 +25,25 @@
 
 <script>
 import config from '../config'
+import Crop from './Crop'
 export default {
   name: 'personer',
   data () {
     return {
       msg: '个人中心',
       user: this.$parent.getCookie('username'),
-      menu: config.personer
+      menu: config.personer,
+      face: this.$parent.face
     }
   },
   components: {
-    config
+    config,
+    'my-crop': Crop
+  },
+  methods: {
+    showFace: function (face) {
+      this.$parent.face = face
+    }
   }
 }
 </script>

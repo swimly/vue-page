@@ -32,7 +32,8 @@
         </ul>
         <dl class="user v-m" v-if="login">
           <dt class="row">
-            <span class="col v-m iconfont icon-nan"></span>
+            <span v-if="!userface" class="col v-m iconfont icon-nan"></span>
+            <img v-if="userface" :src="userface" alt="">
             <router-link class="col v-m" to="/zone">{{login}}</router-link>
           </dt>
           <dd>
@@ -53,7 +54,8 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       menus: config.menu,
-      login: this.$parent.getCookie('username')
+      login: this.$parent.getCookie('username'),
+      userface: this.$parent.face
     }
   },
   methods: {
@@ -102,6 +104,7 @@ export default {
 .user{color:#acb8c3;font-size:14px;display:inline-block;position:relative;line-height:50px;height:50px;}
 .user .iconfont{font-size:18px;padding-right:0.5em;}
 .user a{color:#acb8c3;}
+.user img{width:28px;border-radius:50%;vertical-align: middle;margin-right:5px;}
 .user .router-link-active{color:#fff;}
 .user dd{position:absolute;background:#4B505A;top:50px;width:150%;left:0;padding-bottom:1em;display:none;border-radius:0 0 5px 5px;}
 .user dd a{display:block;line-height:30px;height:30px;text-align:left;padding-left:3em;transition:0.3s;}

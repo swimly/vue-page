@@ -22,7 +22,8 @@ export default {
   name: 'app',
   data () {
     return {
-      login: this.getCookie('username')
+      login: this.getCookie('username'),
+      face: ''
     }
   },
   methods: {
@@ -73,6 +74,9 @@ export default {
   watch: {
     'login': function (v, o) {
       this.$children[0].login = this.getCookie('username')
+    },
+    'face': function (v, o) {
+      this.$children[0].userface = v
     }
   }
 }

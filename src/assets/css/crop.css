@@ -106,7 +106,6 @@
     .vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area {
       position: relative;
       padding: 35px;
-      height: 100px;
       background-color: rgba(0, 0, 0, 0.03);
       text-align: center;
       border: 1px dashed rgba(0, 0, 0, 0.08);
